@@ -419,8 +419,10 @@
     "floatWidth": 0,
     "floatDuration": 1.2,
     "floatMax": 5,
-    "accelX": 0,
-    "accelY": 0,
+    "accelX": 1,
+    "accelY": 1,
+    "maxMoveXSpeed": 0,
+    "maxMoveYSpeed": 0,
     "scoreAudio": {
       "__uuid__": "155e3a96-d37a-4e16-8b42-81e57f20227e"
     },
