@@ -29,12 +29,8 @@ cc.Class({
 	},
 	
 	onKeyDown: function (event){
-		
-		console.log('aaaa');
-		
 		switch (event.keyCode)
 		{
-
 				case cc.macro.KEY.up:
 					this.accUp = true;
 					break;
@@ -92,17 +88,30 @@ cc.Class({
 		
 		if (this.accLeft)
 		{
-			this.xSpeed  -= this.accel * dt;
+			this.xSpeed  -= this.accelX * dt;
 		}
 		else if (this.accRight)
 		{
-			this.xSpeed  += this.accel * dt;
+			this.xSpeed  += this.accelX * dt;
+		}
+		
+		if (this.accDown)
+		{
+			this.ySpeed  -= this.accelY * dt;
+		}
+		else if (this.accUp)
+		{
+			this.ySpeed  += this.accelY * dt;
 		}
 		
 		this.node.x += this.xSpeed *dt;
-		console.log(this.xSpeed);
-		console.log(this.node.x);
 		this.node.y += this.ySpeed *dt;
+
+	},
+	stopFloat: function()
+	{
+		this.xSpeed = 0 ; 
+		this.accelX = 0;
 	},
     
 });
