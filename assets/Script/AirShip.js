@@ -1,5 +1,5 @@
-
-cc.Class({
+var _xSpeed = 0
+var AirShip = cc.Class({
     extends: cc.Component,
 
     properties: {
@@ -88,11 +88,11 @@ cc.Class({
 		
 		if (this.accLeft)
 		{
-			this.xSpeed  -= this.accelX * dt;
+			_xSpeed  -= this.accelX * dt;
 		}
 		else if (this.accRight)
 		{
-			this.xSpeed  += this.accelX * dt;
+			_xSpeed  += this.accelX * dt;
 		}
 		
 		if (this.accDown)
@@ -104,14 +104,19 @@ cc.Class({
 			this.ySpeed  += this.accelY * dt;
 		}
 		
-		this.node.x += this.xSpeed *dt;
+		this.node.x += _xSpeed *dt;
 		this.node.y += this.ySpeed *dt;
+		cc.log(_xSpeed);
+	},
 
-	},
-	stopFloat: function()
-	{
-		this.xSpeed = 0 ; 
-		this.accelX = 0;
-	},
     
 });
+module.exports = {
+
+	getXspeed:function(){
+		return _xSpeed;
+	},
+	setXspeed:function(x){
+		 _xSpeed = x;
+	},
+};
